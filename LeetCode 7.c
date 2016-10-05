@@ -9,6 +9,6 @@ int reverse(int x) {
 		num = num * 10 + x % 10;
 		x /= 10;
 	}
-	if (num > 2147483647 || num < -2147483648) return 0;
+	if (num > INT_MAX || num < INT_MIN) return 0;
 	return (int) num * sign;
 }
