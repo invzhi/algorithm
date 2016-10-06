@@ -21,5 +21,23 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
 	}
 	if (l1) p -> next = l1;
 	if (l2) p -> next = l2;
-	return head -> next;
+	p = head;
+	head = head -> next;
+	free(p);
+	return head;
+}
+
+/* Recursion */
+struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+	if (l1 == NULL) return l2;
+	if (l2 == NULL) return l1;
+	struct ListNode* p;
+	if (l1 -> val < l2 -> val) {
+		p = l1;
+		p -> next = mergeTwoLists(p -> next, l2);
+	} else {
+		p = l2;
+		p -> next = mergeTwoLists(l1, p -> next);
+	}
+	return p;
 }
