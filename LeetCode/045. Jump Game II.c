@@ -1,8 +1,7 @@
 int jump(int* nums, int numsSize) {
-	int end, nextEnd, cnt, i;
+	int i, end, nextEnd, cnt;
 	end = nextEnd = cnt = 0;
-	numsSize--;
-	for (i = 0; i < numsSize; i++) {
+	for (i = 0; i < numsSize - 1; i++) {
 		if (i > end) {
 			cnt = -1;
 			break;

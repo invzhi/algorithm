@@ -28,8 +28,8 @@ int toNum(char c) {
 
 int romanToInt(char* s) {
     int i = 1;
-    int pre = toNum(s[0]);
     int now = 0;
+    int pre = toNum(s[0]);
     int value = pre;
     while (s[i]) {
     	now = toNum(s[i]);
