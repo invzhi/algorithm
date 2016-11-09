@@ -1,6 +1,6 @@
 bool row[9][9], col[9][9], block[9][9];
-int cnt = 0;
 
+/*DFS 1*/
 bool DFS(char** board, int i, int j) {
 	if (i == 9) return true;
 	if (j == 9) return DFS(board, i + 1, 0);
@@ -17,6 +17,29 @@ bool DFS(char** board, int i, int j) {
 	return false;
 }
 
+/*DFS 2*/
+bool DFS(char** board, int a, int b) {
+	int i, j, k;
+	i = (b == 9) ? a + 1 : a;
+	j = (b == 9) ? 0 : b;
+	for ( ; i < 9; i++) {
+		for (j = 0; j < 9; j++) {
+			if (board[i][j] == '.') {
+				for (k = 0; k < 9; k++) {
+					if (row[i][k] || col[j][k] || block[i / 3 * 3 + j / 3][k]) continue;
+					row[i][k] =	col[j][k] = block[i / 3 * 3 + j / 3][k] = true;
+					board[i][j] = k + '1';
+					if (DFS(board, i, j + 1)) return true;
+					board[i][j] = '.';
+					row[i][k] =	col[j][k] = block[i / 3 * 3 + j / 3][k] = false;
+				}
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void solveSudoku(char** board, int boardRowSize, int boardColSize) {
 	int i, j, c;
 	memset(row, 0, sizeof(row));
@@ -24,8 +47,7 @@ void solveSudoku(char** board, int boardRowSize, int boardColSize) {
 	memset(block, 0, sizeof(block));
 	for (i = 0; i < 9; i++) {
 		for (j = 0; j < 9; j++) {
-			if (board[i][j] == '.') cnt++;
-			else {
+			if (board[i][j] != '.') {
 				c = board[i][j] - '1';
 				row[i][c] = col[j][c] = block[i / 3 * 3 + j / 3][c] = true;
 			}
