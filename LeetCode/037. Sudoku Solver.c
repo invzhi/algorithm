@@ -21,7 +21,7 @@ bool DFS(char** board, int i, int j) {
 bool DFS(char** board, int a, int b) {
 	int i, j, k;
 	i = (b == 9) ? a + 1 : a;
-	j = (b == 9) ? 0 : b;
+	// j = (b == 9) ? 0 : b;
 	for ( ; i < 9; i++) {
 		for (j = 0; j < 9; j++) {
 			if (board[i][j] == '.') {
