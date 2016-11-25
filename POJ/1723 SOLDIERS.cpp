@@ -14,7 +14,7 @@ int main() {
 	sort(y, y + n);
 	for (int i = 0; i < n; i++) x[i] -= i;
 	sort(x, x + n);
-	for (int i = 0; i < n / 2; i++) cnt += (x[n - 1 - i] - x[i]) + (y[n - 1 - i] - y[i]);
+	for (int i = 0, j = n - 1; i < j; i++, j--) cnt += (x[j] - x[i]) + (y[j] - y[i]);
 	printf("%d\n", cnt);
 	return 0;
 }
