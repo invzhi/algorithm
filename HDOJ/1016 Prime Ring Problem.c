@@ -4,13 +4,20 @@
 int n;
 int vis[19];
 int ring[19] = {1};
+int prime[40];
+
+void initPrime() {
+	int i, j;
+	for (i = 2; i < 40; i++) prime[i] = 1;
+	for (i = 2; i * i < 40; i++) {
+		if (prime[i]) {
+			for (j = i + i; j < 40; j += i) prime[j] = 0;
+		}
+	}
+}
 
 int isPrime(int num) {
-	int i;
-	for (i = 2; i * i <= num; i++) {
-		if (num % i == 0) return 0;
-	}
-	return 1;
+	return prime[num];
 }
 
 void DFS(int cur) {
@@ -32,6 +39,7 @@ void DFS(int cur) {
 
 int main() {
 	int i = 1;
+	initPrime();
 	while (scanf("%d", &n) == 1) {
 		memset(vis, 0, sizeof(vis));
 		printf("Case %d:\n", i++);

@@ -1,4 +1,4 @@
-# Online Judge Problems' Answer
+# Online Judge Problems' Solutions
 
 All answers are accepted.
 
