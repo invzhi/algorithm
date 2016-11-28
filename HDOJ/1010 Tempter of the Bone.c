@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 int dx, dy, flag, N, M, T;
-int vis[6][6];
-int maze[6][6];
 int move[4][2] = {{0, 1}, {1, -1}, {-1, -1}, {-1, 1}};
+char vis[6][6];
+char maze[6][6];
 
 void DFS(int x, int y, int cur) {
 	vis[x][y] = 1;
