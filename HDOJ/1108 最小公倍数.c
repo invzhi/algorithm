@@ -1,15 +1,11 @@
 #include <stdio.h>
 
 int main() {
-	int a, b, mult, temp;
+	int a, b, mult;
 	while (scanf("%d%d", &a, &b) == 2) {
 		mult = a * b;
-		while (b) {
-			temp = a % b;
-			a = b;
-			b = temp;
-		}
-		printf("%d\n", mult / a);
+		if (b) while ((a %= b) && (b %= a));
+		printf("%d\n", mult / (a + b));
 	}
 	return 0;
 }
