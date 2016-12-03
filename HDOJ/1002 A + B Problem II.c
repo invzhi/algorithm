@@ -28,15 +28,15 @@ void sum() {
 		else c[i] = a[i] + b[i];
 	}
 	c[i] = 0;
-	int last = 0;
+	int pre = 0;
 	for (i = 0; i < max; i++) {
-		c[i] += last;
+		c[i] += pre;
 		if (c[i] > '9') {
 			c[i] -= 10;
-			last = 1;
-		} else last = 0;
+			pre = 1;
+		} else pre = 0;
 	}
-	if (last) {
+	if (pre) {
 		c[i++] = '1';
 		c[i] = 0;
 		max++;

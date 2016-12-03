@@ -25,10 +25,10 @@ void mult(int ans[], int s[])
 			if (ans[j])	temp[i + j] += s[i] * ans[j];
 		}
 	}
-	int last = 0;
+	int pre = 0;
 	for (int i = 0; i < 130; i++) {
-		ans[i] = (last + temp[i]) % 10;
-		last = (last + temp[i]) / 10;
+		ans[i] = (pre + temp[i]) % 10;
+		pre = (pre + temp[i]) / 10;
 	}
 }
 
