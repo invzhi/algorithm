@@ -8,11 +8,11 @@ int isPlace(int x, int y) {
 	int i;
 	for (i = x - 1; i >= 0; i--) {
 		if (map[i][y] == 'X') break;
-		if (map[i][y] == 'b') return 0;
+		if (map[i][y] == 'O') return 0;
 	}
 	for (i = y - 1; i >= 0; i--) {
 		if (map[x][i] == 'X') break;
-		if (map[x][i] == 'b') return 0;
+		if (map[x][i] == 'O') return 0;
 	}
 	return 1;
 }
@@ -24,7 +24,7 @@ void DFS(int cur, int pos) {
 	}
 	int i = pos / n, j = pos % n;
 	if (isPlace(i, j)) {
-		map[i][j] = 'b';
+		map[i][j] = 'O';
 		DFS(cur + 1, pos + 1);
 		map[i][j] = '.';
 	}

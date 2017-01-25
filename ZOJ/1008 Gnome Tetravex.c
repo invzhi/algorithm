@@ -26,7 +26,6 @@ int main() {
 	while (scanf("%d", &n) && n) {
 		kind = 0;
 		num = n * n;
-		memset(numOfSquare, 0, sizeof(numOfSquare));
 		for (i = 0; i < num; i++) {
 			scanf("%d%d%d%d", &a, &b, &c, &d);
 			for (j = kind - 1; j >= 0; j--) {
@@ -40,7 +39,7 @@ int main() {
 				square[kind][1] = b;
 				square[kind][2] = c;
 				square[kind][3] = d;
-				numOfSquare[kind]++;
+				numOfSquare[kind] = 1;
 				kind++;
 			}
 		}
