@@ -16,6 +16,15 @@ void print_array(int a[], int n) {
 	printf("\n");
 }
 
+int is_sorted(int a[], int n) {
+	for (int i = 1; i < n; i++) {
+		if (a[i] < a[i - 1]) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
 void report(int number, int compare_times, int exchange_times) {
 	printf("Number:   %d\n", number);
 	printf("Compare : %d\n", compare_times);
