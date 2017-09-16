@@ -32,6 +32,7 @@ int main(int argc, char const *argv[])
 	print_array(a, N);
 	selection_sort(a, N);
 	print_array(a, N);
+	printf(is_sorted(a, N) ? "Sort Success\n" : "Sort Error\n");
 	report(N, compare_times, exchange_times);
 	return 0;
 }
