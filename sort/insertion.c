@@ -3,9 +3,6 @@
 
 #define N 20
 
-int compare_times = 0;
-int exchange_times = 0;
-
 void insertion_sort(int a[], int length) {
 	int j, t;
 	for (int i = 1; i < length; i++) {

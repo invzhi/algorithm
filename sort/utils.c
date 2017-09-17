@@ -24,9 +24,3 @@ int is_sorted(int a[], int n) {
 	}
 	return 1;
 }
-
-void report(int number, int compare_times, int exchange_times) {
-	printf("Number:   %d\n", number);
-	printf("Compare : %d\n", compare_times);
-	printf("Exchange: %d\n", exchange_times);
-}
