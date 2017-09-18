@@ -11,11 +11,6 @@ void selection_sort(int a[], int length) {
 				min_index = j;
 			}
 		}
-		void exch(int* a, int* b) {
-			int t = *a;
-			*a = *b;
-			*b = t;
-		}
 		exch(&a[min_index], &a[i]);
 	}
 }

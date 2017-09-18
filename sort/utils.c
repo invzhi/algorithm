@@ -24,3 +24,9 @@ int is_sorted(int a[], int n) {
 	}
 	return 1;
 }
+
+void exch(int* a, int* b) {
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
