@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "utils.h"
 
 #define N 20
@@ -44,6 +45,6 @@ int main(int argc, char const *argv[])
 	print_array(a, N);
 	merge_bu_sort(a, N);
 	print_array(a, N);
-	printf(is_sorted(a, N) ? "Sort Success\n" : "Sort Error\n");
+	assert(is_sorted(a, N));
 	return 0;
 }
