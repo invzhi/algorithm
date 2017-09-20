@@ -29,11 +29,11 @@ void sort(int a[], int t[], int lo, int hi) {
 	}
 }
 
-void merge_sort(int a[], int length) {
-	int* t = (int*)malloc(sizeof(int) * length);
+void merge_sort(int a[], int n) {
+	int* t = (int*)malloc(sizeof(int) * n);
 	if (t != NULL) {
-		memcpy(t, a, sizeof(int) * length);
-		sort(a, t, 0, length - 1);
+		memcpy(t, a, sizeof(int) * n);
+		sort(a, t, 0, n - 1);
 	} else {
 		printf("malloc fail\n");
 	}

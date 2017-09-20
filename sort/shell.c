@@ -4,14 +4,14 @@
 
 #define N 20
 
-void shell_sort(int a[], int length) {
+void shell_sort(int a[], int n) {
 	int j, t;
 	int h = 1;
-	while (h < length / 3) {
+	while (h < n / 3) {
 		h = 3*h + 1;
 	}
 	while (h >= 1) {
-		for (int i = h; i < N; i++) {
+		for (int i = h; i < n; i++) {
 			t = a[i];
 			for (j = i; j >= h && a[j - h] > t; j -= h) {
 				a[j] = a[j - h];

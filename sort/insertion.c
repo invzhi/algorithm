@@ -4,9 +4,9 @@
 
 #define N 20
 
-void insertion_sort(int a[], int length) {
+void insertion_sort(int a[], int n) {
 	int exchanges = 0;
-	for (int i = length - 1; i > 0; i--) {
+	for (int i = n - 1; i > 0; i--) {
 		if (a[i] < a[i - 1]) {
 			exch(&a[i], &a[i - 1]);
 			exchanges++;
@@ -15,7 +15,7 @@ void insertion_sort(int a[], int length) {
 	if (exchanges == 0) return;
 
 	int j, t;
-	for (int i = 1; i < length; i++) {
+	for (int i = 1; i < n; i++) {
 		t = a[i];
 		for (j = i; a[j - 1] > t; j--) {
 			a[j] = a[j - 1];

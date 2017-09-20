@@ -18,16 +18,16 @@ void merge(int a[], int t[], int lo, int mid, int hi) {
 	}
 }
 
-void merge_bu_sort(int a[], int length) {
-	int* t = (int*)malloc(sizeof(int) * length);
+void merge_bu_sort(int a[], int n) {
+	int* t = (int*)malloc(sizeof(int) * n);
 	if (t == NULL) {
 		printf("malloc fail\n");
 		return;
 	}
 	int mid, hi;
-	int end = length - 1;
-	for (int l = 1; l < length; l += l) {
-		for (int lo = 0; lo < length - l; lo += l+l) {
+	int end = n - 1;
+	for (int l = 1; l < n; l += l) {
+		for (int lo = 0; lo < n - l; lo += l+l) {
 			mid = lo + l - 1;
 			hi = lo + l + l - 1;
 			hi = hi < end ? hi : end;

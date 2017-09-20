@@ -4,10 +4,10 @@
 
 #define N 20
 
-void binary_insertion_sort(int a[], int length) {
+void binary_insertion_sort(int a[], int n) {
 	int t;
 	int lo, mid, hi;
-	for (int i = 1; i < length; i++) {
+	for (int i = 1; i < n; i++) {
 		t = a[i];
 		lo = 0;
 		hi = i;

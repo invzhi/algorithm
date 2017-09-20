@@ -4,10 +4,10 @@
 
 #define N 20
 
-void selection_sort(int a[], int length) {
-	for (int i = 0; i < length; i++) {
+void selection_sort(int a[], int n) {
+	for (int i = 0; i < n; i++) {
 		int min_index = i;
-		for (int j = i; j < length; j++) {
+		for (int j = i; j < n; j++) {
 			if (a[j] < a[min_index]) {
 				min_index = j;
 			}
