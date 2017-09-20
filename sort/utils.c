@@ -5,13 +5,13 @@
 void generate_array(int a[], int n) {
 	srand(time(NULL));
 	for (int i = 0; i < n; i++) {
-		a[i] = rand() % 100;
+		a[i] = rand() % (n * 5);
 	}
 }
 
 void print_array(int a[], int n) {
 	for (int i = 0; i < n; i++) {
-		printf("%2d ", a[i]);
+		printf("%3d ", a[i]);
 	}
 	printf("\n");
 }
