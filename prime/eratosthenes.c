@@ -1,32 +1,44 @@
 #include <stdio.h>
+#include <math.h>
+#include <assert.h>
 
 #define N 100
 
-void eratosthenes(int a[], int n) {
-	a[0] = a[1] = 0;
-	a[2] = 1;
-	for (int i = 3; i <= n; i += 2) {
-		a[i] = 1;
-		a[i + 1] = 0;
+void eratosthenes(int primes[], int n) {
+	for (int i = 0; i <= n; i++) {
+		primes[i] = i;
 	}
-	for (int i = 2; i < n; i++) {
-		if (a[i]) {
-			for (int j = i+i; j <= n; j += i) {
-				a[j] = 0;
+	for (int prime = 2; prime*prime <= n; prime++) {
+		if (primes[prime]) {
+			for (int index = prime+prime; index <= n; index += prime) {
+				primes[index] = 0;
 			}
 		}
 	}
 }
 
-int main(int argc, char const *argv[])
-{
-	int a[N + 1];
-	eratosthenes(a, N);
-	for (int i = 0; i <= N; i++) {
-		if (a[i]) {
-			printf("%3d", i);
+int is_prime(int num) {
+	for (int i = 2; i*i <= num; i++) {
+		if (num % i == 0) {
+			return 0;
 		}
 	}
-	printf("\n");
+	return 1;
+}
+
+int main(int argc, char const *argv[])
+{
+	int n = N * log(N) * 1.15; // p(n) = n * ln(n)
+	int primes[n + 1];
+	eratosthenes(primes, n);
+
+	printf("n*ln(n) = %d\n", n);
+	for (int i = 2, j = 0; i <= n; i++) {
+		if (primes[i] > 1) {
+			j++;
+			assert(is_prime(i));
+			printf("%3d: %3d\n", j, i);
+		}
+	}
 	return 0;
 }
