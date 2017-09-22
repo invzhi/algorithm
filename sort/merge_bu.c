@@ -5,6 +5,21 @@
 
 #define N 20
 
+void quick_merge(int a[], int t[], int lo, int mid, int hi) {
+	for (int i = 0; i <= mid; i++) {
+		t[i] = a[i];
+	}
+	for (int i = hi; i > mid; i--) {
+		t[i] = a[hi - i + mid + 1];
+	}
+
+	int i = lo, j = hi;
+	for (int k = lo; k <= hi; k++) {
+		if (t[i] < t[j]) a[k] = t[i++];
+		else             a[k] = t[j--];
+	}
+}
+
 void merge(int a[], int t[], int lo, int mid, int hi) {
 	int i = lo, j = mid + 1;
 	for (int k = lo; k <= hi; k++) {
@@ -32,7 +47,8 @@ void merge_bu_sort(int a[], int n) {
 			hi = lo + l + l - 1;
 			hi = hi < end ? hi : end;
 			if (a[mid] >= a[mid + 1]) {
-				merge(a, t, lo, mid, hi);
+				// merge(a, t, lo, mid, hi);
+				quick_merge(a, t, lo, mid, hi);
 			}
 		}
 	}
