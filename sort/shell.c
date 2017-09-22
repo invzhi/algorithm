@@ -5,12 +5,12 @@
 #define N 20
 
 void shell_sort(int a[], int n) {
-	int j, t;
 	int h = 1;
 	while (h < n / 3) {
 		h = 3*h + 1;
 	}
 	while (h >= 1) {
+		int j, t;
 		for (int i = h; i < n; i++) {
 			t = a[i];
 			for (j = i; j >= h && a[j - h] > t; j -= h) {
