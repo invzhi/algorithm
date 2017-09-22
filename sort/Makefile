@@ -1,6 +1,6 @@
 objects = selection_sort \
 			insertion_sort binary_insertion_sort shell_sort \
-			merge_sort merge_bu_sort \
+			merge_sort merge_bu_sort natural_merge_sort \
 			quick_sort quick3way_sort
 
 all: $(objects)
@@ -24,6 +24,9 @@ merge_sort: merge.c
 
 merge_bu_sort: merge_bu.c
 	gcc -o merge_bu_sort merge_bu.c utils.c
+
+natural_merge_sort: natural_merge.c
+	gcc -o natural_merge_sort natural_merge.c utils.c
 
 quick_sort: quick.c
 	gcc -o quick_sort quick.c utils.c
