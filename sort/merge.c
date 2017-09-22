@@ -34,6 +34,7 @@ void merge_sort(int a[], int n) {
 	if (t != NULL) {
 		memcpy(t, a, sizeof(int) * n);
 		sort(a, t, 0, n - 1);
+		free(t);
 	} else {
 		printf("malloc fail\n");
 	}

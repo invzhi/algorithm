@@ -52,6 +52,7 @@ void merge_bu_sort(int a[], int n) {
 			}
 		}
 	}
+	free(t);
 }
 
 int main(int argc, char const *argv[])
