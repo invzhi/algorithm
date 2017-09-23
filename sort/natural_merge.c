@@ -34,14 +34,13 @@ void merge(int a[], int t[], int lo, int mid, int hi) {
 }
 
 
-int find_end(int a[], int p[], int n) {
+int point(int a[], int p[], int n) {
 	int j = 0;
 	for (int i = 0; i < n - 1; i++) {
 		if (a[i] > a[i + 1]) {
 			p[j++] = i;
 		}
 	}
-	p[j++] = n - 1;
 	return j;
 }
 
@@ -53,12 +52,13 @@ void natural_merge_sort(int a[], int n) {
 		return;
 	}
 
-	int pn = find_end(a, p, n);
-	for (int i = 1; i < pn; i += i) {
-		int lo = 0;
-		for (int som = i - 1; som < pn; som += i+i) {
-			int hi = som + i < pn ? p[som + i] : n - 1;
-			merge(a, t, lo, p[som], hi);
+	int pn = point(a, p, n); // find all reverse point to p[]
+	for (int step = 1; step - 1 < pn; step += step) {
+		int lo = 0, hi; // mid is index
+		for (int mid = step - 1; mid < pn; mid += step+step) {
+			hi = mid + step < pn ? p[mid + step] : n - 1;
+			// merge(a, t, lo, p[mid], hi);
+			quick_merge(a, t, lo, p[mid], hi);
 			lo = hi + 1;
 		}
 	}
