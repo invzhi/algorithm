@@ -17,11 +17,12 @@ typedef struct node {
 node_t nodes[N];
 int max_level;
 
-void count_leaves(int level, int leaves[], node_t* node) {
+void count_leaves(int leaves[], int level, node_t* node) {
 	max_level = level;
+
 	while (node) {
 		if (node -> child) {
-			count_leaves(level + 1, leaves, node -> child);
+			count_leaves(leaves, level + 1, node -> child);
 		} else {
 			leaves[level]++;
 		}
@@ -31,7 +32,7 @@ void count_leaves(int level, int leaves[], node_t* node) {
 
 int main(int argc, char const *argv[])
 {
-	int n, m;
+	int n, m; // n is not be used
 	scanf("%d%d", &n, &m);
 
 	int id, child_cnt, child_id;
@@ -42,15 +43,14 @@ int main(int argc, char const *argv[])
 		node_t* child = nodes[id].child = &nodes[child_id];
 		for (int j = 1; j < child_cnt; j++) {
 			scanf("%d", &child_id);
-			child -> brother = &nodes[child_id];
-			child = child -> brother;
+			child = child -> brother = &nodes[child_id];
 		}
 		child -> brother = NULL;
 	}
 
 	int leaves[N];
 	memset(leaves, 0, sizeof(int) * N);
-	count_leaves(1, leaves, &nodes[1]);
+	count_leaves(leaves, 1, &nodes[1]);
 
 	for (int i = 1; i < max_level; i++) {
 		printf("%d ", leaves[i]);
