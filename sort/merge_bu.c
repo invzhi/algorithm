@@ -6,7 +6,7 @@
 #define N 20
 
 void quick_merge(int a[], int t[], int lo, int mid, int hi) {
-	for (int i = 0; i <= mid; i++) {
+	for (int i = lo; i <= mid; i++) {
 		t[i] = a[i];
 	}
 	for (int i = hi; i > mid; i--) {
