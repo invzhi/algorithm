@@ -46,7 +46,7 @@ void merge_bu_sort(int a[], int n) {
 			mid = lo + l - 1;
 			hi = lo + l + l - 1;
 			hi = hi < end ? hi : end;
-			if (a[mid] >= a[mid + 1]) {
+			if (a[mid] > a[mid + 1]) {
 				// merge(a, t, lo, mid, hi);
 				quick_merge(a, t, lo, mid, hi);
 			}
