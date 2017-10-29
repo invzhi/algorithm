@@ -8,18 +8,20 @@
 int main(int argc, char const *argv[])
 {
 	char str[10]; // -1000000 <= a, b <= 1000000
-	int a, b, comma, n, sum;
+	int a, b, sum;
 	scanf("%d%d", &a, &b);
 	sum = a + b;
 	if (sum < 0) {
 		sum = -sum;
 		printf("-");
 	}
-	n = sprintf(str, "%d", sum);
-	comma = (n - 1) / 3;
-	for (int i = 0, j = n - 3*comma; i < n; i++) {
-		if (i == j) {
-			j += 3;
+
+	int l = sprintf(str, "%d", sum);
+	int n = (l - 1) / 3;
+	int position = l - 3*n;
+	for (int i = 0; i < l; i++) {
+		if (i == position) {
+			position += 3;
 			printf(",");
 		}
 		printf("%c", str[i]);
