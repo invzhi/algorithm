@@ -14,20 +14,21 @@
 
 int main() {
 	float map[N];
-	int m, n, t;
-	float num;
+	int m, n, k;
+	float v;
 	memset(map, 0, sizeof(float) * N);
 
 	scanf("%d", &m);
 	for (int i = 0; i < m; i++) {
-		scanf("%d%f", &t, &num);
-		map[t] += num;
+		scanf("%d%f", &k, &v);
+		map[k] += v;
 	}
 	scanf("%d", &n);
 	for (int i = 0; i < n; i++) {
-		scanf("%d%f", &t, &num);
-		map[t] += num;
+		scanf("%d%f", &k, &v);
+		map[k] += v;
 	}
+
 	int cnt = 0;
 	for (int i = 0; i < N; i++) {
 		if (map[i] != 0.0) {
