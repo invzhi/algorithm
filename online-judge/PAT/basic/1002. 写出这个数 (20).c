@@ -15,42 +15,10 @@ int main(int argc, char const *argv[])
 	}
 
 	char s[4]; // max: 900
+	char* pinyin[] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
 	sprintf(s, "%d", sum);
 	for (int i = 0; s[i] != '\0'; i++) {
-		char* pinyin;
-		switch (s[i]) {
-			case '0':
-				pinyin = "ling";
-				break;
-			case '1':
-				pinyin = "yi";
-				break;
-			case '2':
-				pinyin = "er";
-				break;
-			case '3':
-				pinyin = "san";
-				break;
-			case '4':
-				pinyin = "si";
-				break;
-			case '5':
-				pinyin = "wu";
-				break;
-			case '6':
-				pinyin = "liu";
-				break;
-			case '7':
-				pinyin = "qi";
-				break;
-			case '8':
-				pinyin = "ba";
-				break;
-			case '9':
-				pinyin = "jiu";
-				break;
-		}
-		printf(i ? " %s" : "%s", pinyin);
+		printf(i ? " %s" : "%s", pinyin[s[i]-'0']);
 	}
 	return 0;
 }
