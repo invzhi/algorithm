@@ -8,10 +8,10 @@ void eratosthenes(int primes[], int n) {
 	for (int i = 0; i <= n; i++) {
 		primes[i] = i;
 	}
-	for (int prime = 2; prime*prime <= n; prime++) {
-		if (primes[prime]) {
-			for (int index = prime+prime; index <= n; index += prime) {
-				primes[index] = 0;
+	for (int p = 2; p*p <= n; p++) {
+		if (primes[p]) {
+			for (int i = p+p; i <= n; i += p) {
+				primes[i] = 0;
 			}
 		}
 	}
