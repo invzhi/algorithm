@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define N 4617
-
 int main(int argc, char const *argv[])
 {
 	int n; // < 1000

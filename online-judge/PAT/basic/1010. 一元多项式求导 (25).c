@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define N 100
-
 int main(int argc, char const *argv[])
 {
 	int a, n;

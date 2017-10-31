@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define N 100
-
 int main(int argc, char const *argv[])
 {
 	int n, m; // 1 <= n <= 100, m >= 0
