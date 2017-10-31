@@ -3,3 +3,6 @@
 !*/
 !Makefile
 *.o
+
+# for test
+test.c
