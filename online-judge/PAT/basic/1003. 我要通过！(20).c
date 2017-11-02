@@ -11,47 +11,24 @@ int main(int argc, char const *argv[])
 	char s[N];
 	for (int i = 0; i < n; i++) {
 		scanf("%s", s);
-		int l = strlen(s);
 
-		int j = 0;
-		while (s[j] == 'A') {
-			j++;
-		}
-
-		int x = j;
-		if (s[j] != 'P') {
-			printf("NO\n");
-			continue;
-		}
-
-		j++;
-		while (s[j] == 'A') {
-			j++;
-		}
-
-		if (s[j] != 'T') {
-			printf("NO\n");
-			continue;
-		}
-
-		int a = j - x - 1;
-		if (a == 0) {
-			printf("NO\n");
-			continue;
-		}
-
-		x *= a;
-		int yes = 1;
-		for (int i = 0; i < x; i++) {
-			int index = j + 1 + i;
-			if (index >= l || s[index] != 'A') {
+		int cnt[3] = {0, 0, 0}; // number of 'A': before 'P', between 'P' and 'T', after 'T'
+		int pos = 0, yes = 1;
+		for (int j = 0; s[j] != '\0'; j++) {
+			if (s[j] == 'A') {
+				cnt[pos]++;
+			} else if ((s[j] == 'P' && pos == 0) || (s[j] == 'T' && pos == 1)) {
+				pos++;
+			} else {
 				yes = 0;
-				printf("NO\n");
 				break;
 			}
 		}
-		if (yes) {
-			printf("YES\n");
+
+		if (yes && pos == 2 && cnt[1] != 0 && cnt[0]*cnt[1] == cnt[2]) {
+			puts("YES");
+		} else {
+			puts("NO");
 		}
 	}
 	return 0;
