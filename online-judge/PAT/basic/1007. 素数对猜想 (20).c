@@ -18,14 +18,15 @@ int main(int argc, char const *argv[])
 	int n;
 	scanf("%d", &n);
 
-	int couple = 0;
 	int primes[n+1];
 	eratosthenes(primes, n);
+
+	int couple = 0;
 	for (int i = 3; i+2 <= n; i += 2) {
 		if (primes[i] > 1 && primes[i+2] > 1) {
 			couple++;
 		}
 	}
-	printf("%d\n", couple);
+	printf("%d", couple);
 	return 0;
 }
