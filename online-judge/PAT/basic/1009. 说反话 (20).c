@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 81
+#define N 82
 
 int main(int argc, char const *argv[])
 {
 	char s[N] = "";
-	gets(s); // fgets(s, N, stdin);
+	fgets(s, N, stdin);
+	int l = strlen(s);
+	if (s[l-1] == '\n') {
+		s[l-1] = '\0';
+	}
 
-	for (int i = strlen(s) - 2; i > 0; i--) {
+	for (int i = l - 2; i > 0; i--) {
 		if (s[i] == ' ') {
 			s[i] = '\0';
 			printf("%s ", s+i+1);
