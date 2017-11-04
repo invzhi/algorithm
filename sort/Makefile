@@ -1,7 +1,7 @@
 objects = selection_sort \
 			insertion_sort binary_insertion_sort shell_sort \
 			merge_sort merge_bu_sort natural_merge_sort \
-			quick_sort quick3way_sort
+			quick_sort quick3way_sort heap_sort
 
 all: $(objects)
 
@@ -33,6 +33,9 @@ quick_sort: quick.c
 
 quick3way_sort: quick3way.c
 	gcc -o quick3way_sort quick3way.c utils.c
+
+heap_sort: heap.c
+	gcc -o heap_sort heap.c utils.c
 
 .PHONY: clean
 clean:
