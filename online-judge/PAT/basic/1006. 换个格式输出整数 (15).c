@@ -5,17 +5,16 @@ int main(int argc, char const *argv[])
 	int n; // < 1000
 	scanf("%d", &n);
 
-	int b = n / 100;
-	int s = n % 100 / 10;
-	int g = n % 10;
-	for (int i = 0; i < b; i++) {
-		printf("B");
+	while (n >= 100) {
+		putchar('B');
+		n -= 100;
 	}
-	for (int i = 0; i < s; i++) {
-		printf("S");
+	while (n >= 10) {
+		putchar('S');
+		n -= 10;
 	}
-	for (int i = 1; i <= g; i++) {
-		printf("%d", i);
+	for (int i = 0; n >= 1; i++, n--) {
+		putchar('1' + i);
 	}
 	return 0;
 }
