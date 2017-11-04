@@ -8,7 +8,7 @@ int isday(char c) {
 }
 
 int ishour(char c) {
-	return c >= 'A' && c <= 'N' || isdigit(c);
+	return (c >= 'A' && c <= 'N') || isdigit(c);
 }
 
 int main(int argc, char const *argv[])
@@ -24,14 +24,14 @@ int main(int argc, char const *argv[])
 	int i;
 	for (i = 0; s[0][i] && s[1][i]; i++) {
 		char c = s[0][i];
-		if (s[0][i] == s[1][i] && isday(c)) {
+		if (c == s[1][i] && isday(c)) {
 			day = c - 'A';
 			break;
 		}
 	}
-	for (i++; s[0][i] && s[1][i]; i++) {
+	for (i = i + 1; s[0][i] && s[1][i]; i++) {
 		char c = s[0][i];
-		if (s[0][i] == s[1][i] && ishour(c)) {
+		if (c == s[1][i] && ishour(c)) {
 			if (isdigit(c)) {
 				hour = c - '0';
 			} else {
