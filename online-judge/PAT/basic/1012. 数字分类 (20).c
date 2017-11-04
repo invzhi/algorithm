@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	memset(flag, 0, sizeof(flag));
 
 	int sign = 1; // a2: sign
-	float cnt = 0; // a4: average
+	float cnt = 0.0; // a4: average
 
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &num);
