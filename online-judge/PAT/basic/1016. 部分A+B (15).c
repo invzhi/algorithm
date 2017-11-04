@@ -18,7 +18,7 @@ int p(char s[], char c) {
 
 int main(int argc, char const *argv[])
 {
-	char a[N], b[N];
+	char a[N], b[N]; // 0 < a, b < 10^10
 	char da, db;
 	scanf("%s %c %s %c", a, &da, b, &db);
 
