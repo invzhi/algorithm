@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void print_line(char c, int space, int n) {
 	for (int i = 0; i < space; i++) {
@@ -16,21 +17,19 @@ int main(int argc, char const *argv[])
 	char c;
 	scanf("%d %c", &n, &c);
 
-	n -= 1;
-	int max;
-	for (max = 3; n >= 2*max; max += 2) {
-		n -= 2 * max;
+	int h;
+	for (h = 1; ; h++) {
+		if (n < 2*h*h-1) { // 2*h*h-1 = 1, 6, 10, 14, ...
+			h--;
+			n -= 2*h*h-1;
+			break;
+		}
 	}
-	max -= 2;
 
-	int space = 0;
-	for (int num = max; num > 1; num -= 2) {
-		print_line(c, space, num);
-		space++;
-	}
-	for (int num = 1; num <= max; num += 2) {
-		print_line(c, space, num);
-		space--;
+	int mid = h - 1, cnt = 2*h - 1;
+	for (int i = 0; i < cnt; i++) {
+		int dis = abs(mid-i);
+		print_line(c, mid-dis, 2*dis+1);
 	}
 	printf("%d", n);
 	return 0;
