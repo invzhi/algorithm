@@ -18,28 +18,22 @@ void print_mars(int num) {
 }
 
 void print_earth(char h[], char l[]) {
-	if (h[0] == '\0') {
-		for (int i = 0; i < 13; i++) {
-			if (strcmp(high[i], l) == 0) {
-				printf("%d\n", 13*i);
-				return;
-			} else if (strcmp(low[i], l) == 0) {
-				printf("%d\n", i);
-				return;
-			}
-		}
+	if (l[0] == '\0') { // only one mars
+		l = h;
 	}
-	int earth;
-	for (int i = 0; i < 13; i++) {
+	int earth = 0;
+	for (int i = 1; i < 13; i++) {
 		if (strcmp(high[i], h) == 0) {
 			earth = 13 * i;
 			break;
 		}
 	}
-	for (int i = 0; i < 13; i++) {
-		if (strcmp(low[i], l) == 0) {
-			earth += i;
-			break;
+	if (earth == 0 || h != l) { // only h: not find yet; h, l: must continue
+		for (int i = 0; i < 13; i++) {
+			if (strcmp(low[i], l) == 0) {
+				earth += i;
+				break;
+			}
 		}
 	}
 	printf("%d\n", earth);
@@ -58,12 +52,10 @@ int main(int argc, char const *argv[])
 			sscanf(num, "%d", &earth);
 			print_mars(earth);
 		} else {
-			char h[4] = "", l[5];
+			char h[4], l[5] = "";
+			sscanf(num, "%s", h);
 			if (num[3] == ' ') {
-				sscanf(num, "%s", h);
 				sscanf(num+4, "%s", l);
-			} else {
-				sscanf(num, "%s", l);
 			}
 			print_earth(h, l);
 		}
