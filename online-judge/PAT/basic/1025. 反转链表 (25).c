@@ -39,6 +39,7 @@ int main(int argc, char const *argv[])
 		list[cnt++] = nodes[p];
 	}
 
+	// Plan A
 	for (int i = k; i <= cnt; i += k) {
 		reverse(list, i-k, i);
 	}
@@ -47,5 +48,25 @@ int main(int argc, char const *argv[])
 		printf("%05d %d %05d\n", list[i]->addr, list[i]->data, list[i+1]->addr);
 	}
 	printf("%05d %d -1\n", list[cnt-1]->addr, list[cnt-1]->data);
+
+	// Plan B
+	// for (int i = k - 1; i < cnt; i += k) {
+	// 	for (int j = 0; j < k - 1; j++) {
+	// 		printf("%05d %d %05d\n", list[i-j]->addr, list[i-j]->data, list[i-j-1]->addr);
+	// 	}
+	// 	if (i + 1 == cnt) { // list[i] is last node
+	// 		printf("%05d %d -1\n", list[i+1-k]->addr, list[i+1-k]->data);
+	// 	} else {
+	// 		int next = i + k < cnt ? i + k : i + 1; // next node is reversed?
+	// 		printf("%05d %d %05d\n", list[i+1-k]->addr, list[i+1-k]->data, list[next]->addr);
+	// 	}
+	// }
+	// for (int i = cnt/k*k; i < cnt; i++) {
+	// 	if (i + 1 < cnt) {
+	// 		printf("%05d %d %05d\n", list[i]->addr, list[i]->data, list[i+1]->addr);
+	// 	} else {
+	// 		printf("%05d %d -1\n", list[i]->addr, list[i]->data);
+	// 	}
+	// }
 	return 0;
 }
