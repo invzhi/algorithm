@@ -4,24 +4,24 @@
 
 int main(int argc, char const *argv[])
 {
-	int cnt[128];
+	int cnt[26];
 	memset(cnt, 0, sizeof(cnt));
 
 	char c;
 	while ((c = getchar()) != '\n' && c != EOF) {
 		if (isalpha(c)) {
-			cnt[tolower(c)]++;
+			cnt[tolower(c)-'a']++;
 		}
 	}
 
-	char max_c = 'a';
-	for (char c = 'b'; c <= 'z'; c++) {
-		if (cnt[c] > cnt[max_c]) {
-			max_c = c;
+	int max_i = 0;
+	for (int i = 1; i < 26; i++) {
+		if (cnt[i] > cnt[max_i]) {
+			max_i = i;
 		}
 	}
 
-	printf("%c %d", max_c, cnt[max_c]);
+	printf("%c %d", max_i+'a', cnt[max_i]);
 
 	return 0;
 }
