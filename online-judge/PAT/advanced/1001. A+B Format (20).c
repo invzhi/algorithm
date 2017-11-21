@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	sum = a + b;
 	if (sum < 0) {
 		sum = -sum;
-		printf("-");
+		putchar('-');
 	}
 
 	int l = sprintf(str, "%d", sum);
@@ -22,9 +22,9 @@ int main(int argc, char const *argv[])
 	for (int i = 0; i < l; i++) {
 		if (i == position) {
 			position += 3;
-			printf(",");
+			putchar(',');
 		}
-		printf("%c", str[i]);
+		putchar(str[i]);
 	}
 	return 0;
 }
