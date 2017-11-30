@@ -16,17 +16,13 @@ int main(int argc, char const *argv[])
 	}
 	qsort(dis, n, sizeof(int), cmp);
 
-	int haveRes = 0;
-	for (int i = n; i > 0; i--) {
-		if (dis[i-1] > i) {
-			printf("%d", i);
-			haveRes = 1;
+	int e;
+	for (e = n; e > 0; e--) {
+		if (dis[e-1] > e) {
 			break;
 		}
 	}
-	if (haveRes == 0) {
-		putchar('0');
-	}
+	printf("%d", e);
 
 	return 0;
 }
