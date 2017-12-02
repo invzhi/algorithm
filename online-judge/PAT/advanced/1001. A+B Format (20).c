@@ -7,21 +7,21 @@
 
 int main(int argc, char const *argv[])
 {
-	char str[10]; // -1000000 <= a, b <= 1000000
-	int a, b, sum;
-	scanf("%d%d", &a, &b);
-	sum = a + b;
+	int a, b; // -1000000 <= a, b <= 1000000
+	scanf("%d %d", &a, &b);
+
+	int sum = a + b;
 	if (sum < 0) {
 		sum = -sum;
 		putchar('-');
 	}
 
+	char str[8];
 	int l = sprintf(str, "%d", sum);
-	int n = (l - 1) / 3;
-	int position = l - 3*n;
+	int pos = l - (l - 1) / 3 * 3; // number of comma: (l - 1) / 3
 	for (int i = 0; i < l; i++) {
-		if (i == position) {
-			position += 3;
+		if (i == pos) {
+			pos += 3;
 			putchar(',');
 		}
 		putchar(str[i]);
