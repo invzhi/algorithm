@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 
 	char str[8];
 	int l = sprintf(str, "%d", sum);
-	int pos = l - (l - 1) / 3 * 3; // number of comma: (l - 1) / 3
+	int pos = l % 3 ? l % 3 : 3;
 	for (int i = 0; i < l; i++) {
 		if (i == pos) {
 			pos += 3;
