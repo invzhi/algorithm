@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int getGcd(int a, int b) {
+int get_gcd(int a, int b) {
 	if (b) while ((a %= b) && (b %= a));
 	return a + b;
 }
@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 	int a = k * n1 / m1 + 1;
 
 	for (int i = a, first = 1; i*m2 < k*n2; i++) {
-		if (getGcd(i, k) == 1) {
+		if (get_gcd(i, k) == 1) {
 			printf("%s%d/%d", first ? "" : " ", i, k);
 			first = 0;
 		}

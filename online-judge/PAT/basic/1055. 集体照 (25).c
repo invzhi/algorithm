@@ -16,7 +16,7 @@ int cmp(const void* a, const void* b) {
 	}
 }
 
-void printRow(person p[], int n) { // careful if n == 1
+void print_row(person p[], int n) { // careful if n == 1
 	for(int i = n / 2 * 2 - 1; i > 0; i -= 2) {
 		printf("%s ", p[i].name);
 	}
@@ -37,9 +37,9 @@ int main(int argc, char const *argv[])
 	qsort(ps, n, sizeof(person), cmp);
 
 	int m = n / k;
-	printRow(ps, m + n%k);
+	print_row(ps, m + n%k);
 	for (int i = m + n%k; i < n; i += m) {
-		printRow(ps+i, m);
+		print_row(ps+i, m);
 	}
 
 	return 0;

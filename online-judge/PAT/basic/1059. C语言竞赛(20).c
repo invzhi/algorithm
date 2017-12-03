@@ -3,7 +3,7 @@
 
 #define N 10000
 
-int isPrime(int num) {
+int is_prime(int num) {
 	if (num <= 2) { // 1 or 2
 		return num == 1 ? 0 : 1;
 	} else if ((num & 1) == 0) {
@@ -49,7 +49,7 @@ int main(int argc, char const *argv[])
 			order[id] = -1;
 			break;
 		default:
-			if (isPrime(order[id])) {
+			if (is_prime(order[id])) {
 				puts("Minion");
 			} else {
 				puts("Chocolate");
