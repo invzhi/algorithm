@@ -9,19 +9,25 @@
 
 int main(int argc, char const *argv[])
 {
-	int n, floor;
-	int time = 0, now = 0;
+	int n;
 	scanf("%d", &n);
+
+	int time = 0, now = 0;
+
 	for (int i = 0; i < n; i++) {
-		scanf("%d", &floor);
-		if (floor > now) {
-			time += 6 * (floor - now);
+		int request;
+		scanf("%d", &request);
+
+		if (request > now) {
+			time += 6 * (request - now);
 		} else {
-			time += 4 * (now - floor);
+			time += 4 * (now - request);
 		}
-		now = floor;
+		now = request;
 		time += 5;
 	}
+
 	printf("%d", time);
+
 	return 0;
 }
