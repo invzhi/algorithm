@@ -12,15 +12,16 @@
 int main(int argc, char const *argv[])
 {
 	int m;
-	char id[16], in_id[16], out_id[16];
-	char in_time[9], out_time[9];
+	scanf("%d", &m);
+
+	char in_id[16], out_id[16];
 	char min_time[9] = "99:99:99";
 	char max_time[9] = "00:00:00";
 
-	scanf("%d", &m);
-
 	for (int i = 0; i < m; i++) {
-		scanf("%s%s%s", id, in_time, out_time);
+		char id[16], in_time[9], out_time[9];
+		scanf("%s %s %s", id, in_time, out_time);
+
 		if (strcmp(in_time, min_time) < 0) {
 			strcpy(min_time, in_time);
 			strcpy(in_id, id);
@@ -30,6 +31,8 @@ int main(int argc, char const *argv[])
 			strcpy(out_id, id);
 		}
 	}
+
 	printf("%s %s", in_id, out_id);
+
 	return 0;
 }
