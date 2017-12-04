@@ -30,16 +30,16 @@ int main() {
 		map[n] += a;
 	}
 
-	int last, cnt = 0;
+	int max_n, cnt = 0;
 	for (int i = 0; i < N; i++) {
 		if (map[i] != 0.0) {
 			cnt++;
-			last = i;
+			max_n = i;
 		}
 	}
 
 	printf("%d", cnt);
-	for (int i = last; i >= 0; i--) {
+	for (int i = max_n; i >= 0; i--) {
 		if (map[i] != 0.0) {
 			printf(" %d %.1f", i, map[i]);
 		}
